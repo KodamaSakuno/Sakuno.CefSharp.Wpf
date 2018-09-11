@@ -1,0 +1,27 @@
+<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <OutputType>WinExe</OutputType>
+    <Platforms>x86;x64</Platforms>
+    <LangVersion>7.3</LangVersion>
+    <RootNamespace>Sakuno.CefSharp.Wpf.Demo</RootNamespace>
+    <AssemblyName>Sakuno.CefSharp.Wpf.Demo</AssemblyName>
+    <OutputPath>$(SolutionDir)artifacts\samples\$(Platform)\$(Configuration)\</OutputPath>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon />
+    <StartupObject />
+    <ExtrasEnableWpfProjectSetup>true</ExtrasEnableWpfProjectSetup>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="CefSharp">
+        <HintPath>$(NuGetPackageRoot)cefsharp.common\67.0.0\CefSharp\$(Platform)\CefSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj" />
+  </ItemGroup>
+
+</Project>
