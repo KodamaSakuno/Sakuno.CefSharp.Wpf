@@ -1,0 +1,24 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <Target Name="PlatformCheck" BeforeTargets="InjectReference" Condition="(('$(Platform)' != 'x86') AND ('$(Platform)' != 'x64'))">
+    <Error Text="$(MSBuildThisFileName) does not work on '$(Platform)' platform. You need to specify platform either 'x86' or 'x64'." />
+  </Target>
+
+  <ItemGroup>
+    <CefRedistFiles Include="$(NuGetPackageRoot)cef.redist.$(Platform)\$(CefRedistVersion)\CEF\**\*.*" />
+    <CefSharpCommonFiles Include="$(NuGetPackageRoot)cefsharp.common\$(CefSharpCommonVersion)\CefSharp\$(Platform)\*.*" />
+  </ItemGroup>
+
+  <Target Name="CopyCefRedistFiles" Inputs="@(CefRedistFiles)" Outputs="@(CefRedistFiles -> '$(OutDir)\%(RecursiveDir)%(FileName)%(Extension)')">
+    <Copy SourceFiles="@(CefRedistFiles)" DestinationFiles="@(CefRedistFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+  <Target Name="CopyCefSharpCommonFiles" Inputs="@(CefSharpCommonFiles)" Outputs="@(CefSharpCommonFiles -> '$(OutDir)\%(RecursiveDir)%(FileName)%(Extension)')">
+    <Copy SourceFiles="@(CefSharpCommonFiles)" DestinationFiles="@(CefSharpCommonFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+
+  <PropertyGroup>
+    <PostBuildEventDependsOn>$(PostBuildEventDependsOn);CopyCefRedistFiles;CopyCefSharpCommonFiles;</PostBuildEventDependsOn>
+    <BuildDependsOn>$(BuildDependsOn);CopyCefRedistFiles;CopyCefSharpCommonFiles;</BuildDependsOn>
+  </PropertyGroup>
+
+</Project>

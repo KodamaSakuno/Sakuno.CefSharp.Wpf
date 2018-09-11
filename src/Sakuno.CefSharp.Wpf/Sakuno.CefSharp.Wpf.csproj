@@ -7,16 +7,11 @@
     <LangVersion>7.3</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>$(SolutionDir)artifacts\$(Platform)\$(Configuration)\</OutputPath>
-    <PackageId>Sakuno.CefSharp.Wpf</PackageId>
     <Version>67.0.0-pre</Version>
-    <Authors>Kodama Sakuno</Authors>
-    <Description>A non off-screen rendering CefSharp web browser control implementation for WPF</Description>
-    <Product>Sakuno.CefSharp.Wpf</Product>
-    <Company>Kodama Sakuno</Company>
-    <Copyright>Copyright © 2018 Kodama Sakuno</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageLicenseUrl>https://github.com/KodamaSakuno/Sakuno.CefSharp.Wpf/blob/master/LICENSE.md</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/KodamaSakuno/Sakuno.CefSharp.Wpf</PackageProjectUrl>
+    <PackageOutputPath>$(SolutionDir)</PackageOutputPath>
+    <NuspecFile>$(SolutionDir)nuget\Sakuno.CefSharp.Wpf.nuspec</NuspecFile>
+    <NuspecProperties>version=$(Version);solutiondir=$(SolutionDir)</NuspecProperties>
   </PropertyGroup>
 
   <ItemGroup>

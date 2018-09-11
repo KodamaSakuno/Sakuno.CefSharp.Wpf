@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Sakuno.CefSharp.Wpf</id>
+    <version>$version$</version>
+    <authors>Kodama Sakuno</authors>
+    <owners>Kodama Sakuno</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <licenseUrl>https://github.com/KodamaSakuno/Sakuno.CefSharp.Wpf/blob/master/LICENSE.md</licenseUrl>
+    <projectUrl>https://github.com/KodamaSakuno/Sakuno.CefSharp.Wpf</projectUrl>
+    <description>A non off-screen rendering CefSharp web browser control implementation for WPF</description>
+    <copyright>Copyright © 2018 Kodama Sakuno</copyright>
+    <dependencies>
+      <group targetFramework=".NETFramework4.5.2">
+        <dependency id="CefSharp.Common" version="67.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="PresentationCore" targetFramework=".NETFramework4.5.2" />
+      <frameworkAssembly assemblyName="PresentationFramework" targetFramework=".NETFramework4.5.2" />
+      <frameworkAssembly assemblyName="System.Xaml" targetFramework=".NETFramework4.5.2" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework=".NETFramework4.5.2" />
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+      <file src="Sakuno.CefSharp.Wpf.props" target="build" />
+      <file src="Sakuno.CefSharp.Wpf.targets" target="build" />
+      <file src="$solutiondir$artifacts\x86\Release\net452\Sakuno.CefSharp.Wpf.dll" target="lib\x86" />
+      <file src="$solutiondir$artifacts\x64\Release\net452\Sakuno.CefSharp.Wpf.dll" target="lib\x64" />
+  </files>
+</package>
