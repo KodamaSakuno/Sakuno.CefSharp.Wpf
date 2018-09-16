@@ -9,16 +9,15 @@
     <CefSharpCommonFiles Include="$(NuGetPackageRoot)cefsharp.common\$(CefSharpCommonVersion)\CefSharp\$(Platform)\*.*" />
   </ItemGroup>
 
-  <Target Name="CopyCefRedistFiles" Inputs="@(CefRedistFiles)" Outputs="@(CefRedistFiles -> '$(OutDir)\%(RecursiveDir)%(FileName)%(Extension)')">
-    <Copy SourceFiles="@(CefRedistFiles)" DestinationFiles="@(CefRedistFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
-  <Target Name="CopyCefSharpCommonFiles" Inputs="@(CefSharpCommonFiles)" Outputs="@(CefSharpCommonFiles -> '$(OutDir)\%(RecursiveDir)%(FileName)%(Extension)')">
-    <Copy SourceFiles="@(CefSharpCommonFiles)" DestinationFiles="@(CefSharpCommonFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
-
-  <PropertyGroup>
-    <PostBuildEventDependsOn>$(PostBuildEventDependsOn);CopyCefRedistFiles;CopyCefSharpCommonFiles;</PostBuildEventDependsOn>
-    <BuildDependsOn>$(BuildDependsOn);CopyCefRedistFiles;CopyCefSharpCommonFiles;</BuildDependsOn>
-  </PropertyGroup>
+  <ItemGroup>
+    <None Include="@(CefRedistFiles)">
+      <Visible>False</Visible>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="@(CefSharpCommonFiles)">
+      <Visible>False</Visible>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 
 </Project>
