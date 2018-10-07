@@ -94,6 +94,8 @@ namespace Sakuno.CefSharp.Wpf
 
         bool _isAddressChanging;
 
+        public event Action<IBrowser> AfterBrowserCreated;
+
         public event EventHandler<ConsoleMessageEventArgs> ConsoleMessage;
         public event EventHandler<StatusMessageEventArgs> StatusMessage;
         public event EventHandler<FrameLoadStartEventArgs> FrameLoadStart;
@@ -199,6 +201,8 @@ namespace Sakuno.CefSharp.Wpf
             });
 
             _adapter.Resize(rect.Width, rect.Height);
+
+            AfterBrowserCreated?.Invoke(_browser);
         }
 
         void IWebBrowserInternal.SetAddress(AddressChangedEventArgs args)
