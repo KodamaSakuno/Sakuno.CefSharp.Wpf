@@ -6,7 +6,7 @@
     <authors>Kodama Sakuno</authors>
     <owners>Kodama Sakuno</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <licenseUrl>https://github.com/KodamaSakuno/Sakuno.CefSharp.Wpf/blob/master/LICENSE.md</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/KodamaSakuno/Sakuno.CefSharp.Wpf</projectUrl>
     <description>A non off-screen rendering CefSharp web browser control implementation for WPF</description>
     <copyright>Copyright © 2018 Kodama Sakuno</copyright>
