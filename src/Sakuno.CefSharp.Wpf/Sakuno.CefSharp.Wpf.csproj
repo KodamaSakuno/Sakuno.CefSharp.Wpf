@@ -7,7 +7,7 @@
     <LangVersion>7.3</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>$(SolutionDir)artifacts\$(Platform)\$(Configuration)\</OutputPath>
-    <Version>67.0.0-pre2</Version>
+    <Version>69.0.0-pre</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageOutputPath>$(SolutionDir)artifacts\</PackageOutputPath>
     <NuspecFile>$(SolutionDir)nuget\Sakuno.CefSharp.Wpf.nuspec</NuspecFile>
