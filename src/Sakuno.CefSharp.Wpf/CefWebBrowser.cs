@@ -124,7 +124,10 @@ namespace Sakuno.CefSharp.Wpf
                     NativeEnums.WindowStyles.WS_CHILD | NativeEnums.WindowStyles.WS_VISIBLE | NativeEnums.WindowStyles.WS_CLIPCHILDREN,
                     0, 0, 0, 0, hwndParent.Handle, IntPtr.Zero, Marshal.GetHINSTANCE(typeof(NativeMethods).Module), IntPtr.Zero);
 
-            _adapter.CreateBrowser(BrowserSettings, (RequestContext)RequestContext, _childWindow, null);
+            var windowInfo = new WindowInfo();
+            windowInfo.SetAsChild(_childWindow);
+
+            _adapter.CreateBrowser(windowInfo, BrowserSettings, (RequestContext)RequestContext, null);
 
             return new HandleRef(null, _childWindow);
         }

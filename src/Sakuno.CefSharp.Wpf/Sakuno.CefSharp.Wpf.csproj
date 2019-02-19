@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common" Version="69.0.0" />
+    <PackageReference Include="CefSharp.Common" Version="71.0.0" />
   </ItemGroup>
 
 </Project>
