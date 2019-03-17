@@ -9,7 +9,7 @@
     <license type="expression">MIT</license>
     <projectUrl>https://github.com/KodamaSakuno/Sakuno.CefSharp.Wpf</projectUrl>
     <description>A non off-screen rendering CefSharp web browser control implementation for WPF</description>
-    <copyright>Copyright © 2018 Kodama Sakuno</copyright>
+    <copyright>Copyright © 2018-2019 Kodama Sakuno</copyright>
     <dependencies>
       <group targetFramework=".NETFramework4.5.2">
         <dependency id="CefSharp.Common" version="71.0.2" exclude="Build,Analyzers" />
