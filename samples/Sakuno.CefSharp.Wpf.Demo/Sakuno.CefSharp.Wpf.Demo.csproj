@@ -1,4 +1,4 @@
-<Project Sdk="MSBuild.Sdk.Extras">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
@@ -16,7 +16,7 @@
   
   <ItemGroup>
     <Reference Include="CefSharp">
-        <HintPath>$(NuGetPackageRoot)cefsharp.common\69.0.0\CefSharp\$(Platform)\CefSharp.dll</HintPath>
+        <HintPath>$(NuGetPackageRoot)cefsharp.common\71.0.2\CefSharp\$(Platform)\CefSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -12,7 +12,7 @@
     <copyright>Copyright © 2018 Kodama Sakuno</copyright>
     <dependencies>
       <group targetFramework=".NETFramework4.5.2">
-        <dependency id="CefSharp.Common" version="71.0.0" exclude="Build,Analyzers" />
+        <dependency id="CefSharp.Common" version="71.0.2" exclude="Build,Analyzers" />
       </group>
     </dependencies>
     <frameworkAssemblies>
