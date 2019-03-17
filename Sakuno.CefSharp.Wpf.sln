@@ -1,11 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2016
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28711.60
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sakuno.CefSharp.Wpf", "src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj", "{4A862B08-B480-48DC-94D4-59A70DEE2ACA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sakuno.CefSharp.Wpf.Demo", "samples\Sakuno.CefSharp.Wpf.Demo\Sakuno.CefSharp.Wpf.Demo.csproj", "{82F60ED8-FD44-4581-81ED-B845F7D13E62}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{E55C1038-10B7-441B-A65E-AA7619151BE6}"
+	ProjectSection(SolutionItems) = preProject
+		nuget\Sakuno.CefSharp.Wpf.nuspec = nuget\Sakuno.CefSharp.Wpf.nuspec
+		nuget\Sakuno.CefSharp.Wpf.props = nuget\Sakuno.CefSharp.Wpf.props
+		nuget\Sakuno.CefSharp.Wpf.targets = nuget\Sakuno.CefSharp.Wpf.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{29CC713B-ECDD-41AD-8987-C156D191C1D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +43,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{82F60ED8-FD44-4581-81ED-B845F7D13E62} = {29CC713B-ECDD-41AD-8987-C156D191C1D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BB24AAA8-E29B-4FAE-9DB0-3DAA54BDF680}

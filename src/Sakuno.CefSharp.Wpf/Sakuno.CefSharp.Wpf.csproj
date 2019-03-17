@@ -1,17 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
     <OutputType>Library</OutputType>
-    <Platforms>x86;x64</Platforms>
-    <LangVersion>7.3</LangVersion>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <OutputPath>$(SolutionDir)artifacts\$(Platform)\$(Configuration)\</OutputPath>
     <Version>69.0.0-pre</Version>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageOutputPath>$(SolutionDir)artifacts\</PackageOutputPath>
-    <NuspecFile>$(SolutionDir)nuget\Sakuno.CefSharp.Wpf.nuspec</NuspecFile>
-    <NuspecProperties>version=$(Version);solutiondir=$(SolutionDir)</NuspecProperties>
   </PropertyGroup>
 
   <ItemGroup>
