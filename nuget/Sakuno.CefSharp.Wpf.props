@@ -5,7 +5,7 @@
   
   <ItemGroup>
     <Reference Include="Sakuno.CefSharp.Wpf">
-      <HintPath>$(MSBuildThisFileDirectory)..\lib\$(PlatformName)\$(Platform)\Sakuno.CefSharp.Wpf.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)..\lib\net452\$(Platform)\Sakuno.CefSharp.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp">
       <HintPath>$(NuGetPackageRoot)cefsharp.common\$(CefSharpCommonVersion)\CefSharp\$(Platform)\CefSharp.dll</HintPath>
