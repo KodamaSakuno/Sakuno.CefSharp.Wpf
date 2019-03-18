@@ -1,14 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <PropertyGroup>
-    <CefRedistVersion Condition=" '$(CefRedistVersion)' == '' ">3.3578.1870</CefRedistVersion>
-    <CefSharpCommonVersion Condition=" '$(CefSharpCommonVersion)' == '' ">71.0.2</CefSharpCommonVersion>
-  </PropertyGroup>
-
+  <Import Project="$(MSBuildThisFileDirectory)Versions.props" />
+  
   <ItemGroup>
     <Reference Include="Sakuno.CefSharp.Wpf">
-      <HintPath>$(MSBuildThisFileDirectory)..\lib\$(Platform)\Sakuno.CefSharp.Wpf.dll</HintPath>
+      <HintPath>$(MSBuildThisFileDirectory)..\lib\$(PlatformName)\$(Platform)\Sakuno.CefSharp.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="CefSharp">
       <HintPath>$(NuGetPackageRoot)cefsharp.common\$(CefSharpCommonVersion)\CefSharp\$(Platform)\CefSharp.dll</HintPath>

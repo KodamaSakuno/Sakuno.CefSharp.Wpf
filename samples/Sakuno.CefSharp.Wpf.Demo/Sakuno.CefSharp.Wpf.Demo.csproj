@@ -1,7 +1,8 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
+  <Import Project="$(SolutionDir)nuget\Sakuno.CefSharp.Wpf.targets" />
+  
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
     <OutputType>WinExe</OutputType>
     <OutputPath>$(SolutionDir)artifacts\samples\$(Platform)\$(Configuration)\</OutputPath>
     <ApplicationManifest>app.manifest</ApplicationManifest>
@@ -12,7 +13,7 @@
   
   <ItemGroup>
     <Reference Include="CefSharp">
-        <HintPath>$(NuGetPackageRoot)cefsharp.common\71.0.2\CefSharp\$(Platform)\CefSharp.dll</HintPath>
+        <HintPath>$(NuGetPackageRoot)cefsharp.common\$(CefSharpCommonVersion)\CefSharp\$(Platform)\CefSharp.dll</HintPath>
     </Reference>
   </ItemGroup>
 

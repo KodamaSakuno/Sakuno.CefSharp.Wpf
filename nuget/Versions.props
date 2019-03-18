@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <CefRedistVersion Condition=" '$(CefRedistVersion)' == '' ">3.3578.1870</CefRedistVersion>
+    <CefSharpCommonVersion Condition=" '$(CefSharpCommonVersion)' == '' ">71.0.2</CefSharpCommonVersion>
+  </PropertyGroup>
+
+</Project>

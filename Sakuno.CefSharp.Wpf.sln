@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{E55C1038
 		nuget\Sakuno.CefSharp.Wpf.nuspec = nuget\Sakuno.CefSharp.Wpf.nuspec
 		nuget\Sakuno.CefSharp.Wpf.props = nuget\Sakuno.CefSharp.Wpf.props
 		nuget\Sakuno.CefSharp.Wpf.targets = nuget\Sakuno.CefSharp.Wpf.targets
+		nuget\Versions.props = nuget\Versions.props
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{29CC713B-ECDD-41AD-8987-C156D191C1D1}"

@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net452</TargetFramework>
     <OutputType>Library</OutputType>
     <OutputPath>$(SolutionDir)artifacts\$(Platform)\$(Configuration)\</OutputPath>
     <Version>69.0.0-pre</Version>
@@ -16,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CefSharp.Common" Version="71.0.2" />
+    <PackageReference Include="CefSharp.Common" Version="$(CefSharpCommonVersion)" />
   </ItemGroup>
 
 </Project>
