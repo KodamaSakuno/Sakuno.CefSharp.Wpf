@@ -5,6 +5,7 @@
     <OutputType>Library</OutputType>
     <OutputPath>$(SolutionDir)artifacts\$(Platform)\$(Configuration)\</OutputPath>
     <Version>69.0.0-pre</Version>
+    <ExcludeRestorePackageImports>true</ExcludeRestorePackageImports>
   </PropertyGroup>
 
   <ItemGroup>
