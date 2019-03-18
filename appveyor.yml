@@ -1,24 +1,25 @@
-version: 67.0.0-{build}
+version: 71.0.2-{build}
 branches:
   only:
   - master
-image: Visual Studio 2017
+image: Visual Studio 2019 Preview
 configuration: Release
-platform: Any CPU
 init:
 - cmd: git config --global core.autocrlf true
-nuget:
-  disable_publish_on_pr: true
+install:
+- ps: |
+    git submodule update -q --init
+    $CefSharpCommonVersion = (Select-Xml -Path nuget\Versions.props -Namespace @{ ns = "http://schemas.microsoft.com/developer/msbuild/2003" } -XPath "/ns:Project/ns:PropertyGroup/ns:CefSharpCommonVersion/text()").Node.Value
 before_build:
 - cmd: nuget restore
-build:
-  project: Sakuno.CefSharp.Wpf.sln
-  verbosity: minimal
+build_script:
+- ps: |
+    msbuild src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj /p:Platform=x86,Configuration=$env:CONFIGURATION /v:m
+    msbuild src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj /p:Platform=x64,Configuration=$env:CONFIGURATION /v:m
+after_build:
+- ps: |
+    Get-ChildItem -Recurse -Path artifacts -Filter Sakuno.CefSharp.Wpf.dll | Select-Object FullName, Length
+    nuget pack nuget\Sakuno.CefSharp.Wpf.nuspec -Version $CefSharpCommonVersion -Properties SolutionDir=$(Get-Location)\ -Properties CefSharpCommonVersion=$CefSharpCommonVersion
 artifacts:
 - path: '*.nupkg'
   name: NuGet
-deploy:
-- provider: NuGet
-  api_key:
-    secure: uRlrRr17TJpGYMdBG1pTtK/OZws8RkQvrrzgF6lCdXytGjPhsPFXk86qvDzpMkOO
-  skip_symbols: true
