@@ -105,7 +105,14 @@ namespace Sakuno.CefSharp.Wpf
 
         public IBrowser GetBrowser() => _browser;
 
-        public void Load(string url) => _browser?.MainFrame.LoadUrl(url);
+        public void Load(string url)
+        {
+            if (_browser == null)
+                return;
+
+            using (var frame = _browser.MainFrame)
+                frame.LoadUrl(url);
+        }
 
         public void Refresh() => _browser?.Reload();
 
