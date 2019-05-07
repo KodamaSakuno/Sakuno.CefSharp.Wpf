@@ -2,6 +2,7 @@
 using CefSharp.Internals;
 using System;
 using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows;
 using System.Windows.Interop;
 
@@ -9,6 +10,9 @@ namespace Sakuno.CefSharp.Wpf
 {
     public class CefWebBrowser : HwndHost, IWebBrowserInternal
     {
+        volatile int _isDisposed;
+        public bool IsDisposed => _isDisposed == 1;
+
         IntPtr _childWindow;
 
         IBrowser _browser;
@@ -82,6 +86,7 @@ namespace Sakuno.CefSharp.Wpf
         public IResourceHandlerFactory ResourceHandlerFactory { get; set; }
         public IRenderProcessMessageHandler RenderProcessMessageHandler { get; set; }
         public IFindHandler FindHandler { get; set; }
+        public IAudioHandler AudioHandler { get; set; }
 
         public bool IsBrowserInitialized => _browser != null;
 
@@ -174,6 +179,9 @@ namespace Sakuno.CefSharp.Wpf
 
         protected override void Dispose(bool disposing)
         {
+            if (_isDisposed != 0 || Interlocked.CompareExchange(ref _isDisposed, 0, 1) != 0)
+                return;
+
             Cef.RemoveDisposable(this);
 
             if (disposing)

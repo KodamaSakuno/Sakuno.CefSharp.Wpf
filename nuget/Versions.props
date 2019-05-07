@@ -2,8 +2,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
-    <CefRedistVersion Condition=" '$(CefRedistVersion)' == '' ">3.3578.1870</CefRedistVersion>
-    <CefSharpCommonVersion Condition=" '$(CefSharpCommonVersion)' == '' ">71.0.2</CefSharpCommonVersion>
+    <CefRedistVersion Condition=" '$(CefRedistVersion)' == '' ">73.1.13</CefRedistVersion>
+    <CefSharpCommonVersion Condition=" '$(CefSharpCommonVersion)' == '' ">73.1.130</CefSharpCommonVersion>
   </PropertyGroup>
 
 </Project>
