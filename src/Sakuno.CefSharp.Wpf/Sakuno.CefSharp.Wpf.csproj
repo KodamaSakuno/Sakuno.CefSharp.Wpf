@@ -3,7 +3,7 @@
   <PropertyGroup>
     <OutputType>Library</OutputType>
     <OutputPath>$(SolutionDir)artifacts\$(Platform)\$(Configuration)\</OutputPath>
-    <Version>71.0.2</Version>
+    <Version>73.1.130</Version>
     <ExcludeRestorePackageImports>true</ExcludeRestorePackageImports>
   </PropertyGroup>
 
