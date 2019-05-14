@@ -1,4 +1,4 @@
-﻿using CefSharp;
+using CefSharp;
 using CefSharp.Internals;
 using System;
 using System.Runtime.InteropServices;
@@ -139,6 +139,7 @@ namespace Sakuno.CefSharp.Wpf
 
             var windowInfo = new WindowInfo();
             windowInfo.SetAsChild(_childWindow);
+            windowInfo.ExStyle |= (int)NativeEnums.ExtendedWindowStyles.WS_EX_NOACTIVATE;
 
             _adapter.CreateBrowser(windowInfo, BrowserSettings, (RequestContext)RequestContext, null);
 
