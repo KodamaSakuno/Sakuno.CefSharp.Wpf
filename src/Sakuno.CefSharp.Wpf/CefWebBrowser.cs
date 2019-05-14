@@ -72,7 +72,7 @@ namespace Sakuno.CefSharp.Wpf
 
         public static readonly DependencyProperty IsLoadingProperty =
             DependencyProperty.Register(nameof(IsLoading), typeof(bool), typeof(CefWebBrowser),
-                new PropertyMetadata(null));
+                new PropertyMetadata(false));
 
         public bool IsLoading
         {
