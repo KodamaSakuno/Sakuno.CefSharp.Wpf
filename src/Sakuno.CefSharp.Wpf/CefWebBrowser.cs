@@ -19,7 +19,19 @@ namespace Sakuno.CefSharp.Wpf
 
         ManagedCefBrowserAdapter _adapter;
 
-        public BrowserSettings BrowserSettings { get; set; }
+        bool _isBrowserSettingCreatedByBrowser;
+        BrowserSettings _browserSettings;
+        public BrowserSettings BrowserSettings
+        {
+            get => _browserSettings;
+            set
+            {
+                if (_browser != null)
+                    throw new InvalidOperationException("Browser has been created. You cannot set BrowserSettings right now.");
+
+                _browserSettings = value;
+            }
+        }
 
         public static readonly DependencyProperty AddressProperty =
             DependencyProperty.Register(nameof(Address), typeof(string), typeof(CefWebBrowser),
@@ -138,7 +150,13 @@ namespace Sakuno.CefSharp.Wpf
             windowInfo.SetAsChild(_childWindow);
             windowInfo.ExStyle |= (int)NativeEnums.ExtendedWindowStyles.WS_EX_NOACTIVATE;
 
-            _adapter.CreateBrowser(windowInfo, BrowserSettings, (RequestContext)RequestContext, null);
+            _adapter.CreateBrowser(windowInfo, _browserSettings, (RequestContext)RequestContext, null);
+
+            if (_isBrowserSettingCreatedByBrowser)
+            {
+                _browserSettings.Dispose();
+                _browserSettings = null;
+            }
 
             return new HandleRef(null, _childWindow);
         }
@@ -155,8 +173,11 @@ namespace Sakuno.CefSharp.Wpf
 
             Cef.AddDisposable(this);
 
-            if (BrowserSettings == null)
-                BrowserSettings = new BrowserSettings();
+            if (_browserSettings == null)
+            {
+                _browserSettings = new BrowserSettings();
+                _isBrowserSettingCreatedByBrowser = true;
+            }
 
             _adapter = new ManagedCefBrowserAdapter(this, false);
         }
@@ -186,9 +207,8 @@ namespace Sakuno.CefSharp.Wpf
             {
                 _browser = null;
 
-                BrowserSettings?.Dispose();
-
                 _adapter?.Dispose();
+                _adapter = null;
             }
 
             base.Dispose(disposing);
