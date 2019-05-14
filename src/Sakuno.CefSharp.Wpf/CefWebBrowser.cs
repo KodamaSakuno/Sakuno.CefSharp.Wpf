@@ -125,9 +125,6 @@ namespace Sakuno.CefSharp.Wpf
         public void GoBack() => _browser?.GoBack();
         public void GoForward() => _browser?.GoForward();
 
-        public void RegisterAsyncJsObject(string name, object objectToBind, BindingOptions options = null) => throw new NotImplementedException();
-        public void RegisterJsObject(string name, object objectToBind, BindingOptions options = null) => throw new NotImplementedException();
-
         protected override HandleRef BuildWindowCore(HandleRef hwndParent)
         {
             Initialize();
