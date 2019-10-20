@@ -15,13 +15,13 @@ namespace Sakuno.CefSharp.Wpf
 
         IntPtr _childWindow;
 
-        IBrowser _browser;
+        IBrowser? _browser;
 
-        ManagedCefBrowserAdapter _adapter;
+        ManagedCefBrowserAdapter? _adapter;
 
         bool _isBrowserSettingCreatedByBrowser;
-        BrowserSettings _browserSettings;
-        public BrowserSettings BrowserSettings
+        BrowserSettings? _browserSettings;
+        public BrowserSettings? BrowserSettings
         {
             get => _browserSettings;
             set
@@ -80,48 +80,48 @@ namespace Sakuno.CefSharp.Wpf
             set => SetValue(IsLoadingProperty, value);
         }
 
-        public IRequestContext RequestContext { get; set; }
+        public IRequestContext? RequestContext { get; set; }
 
-        public IJavascriptObjectRepository JavascriptObjectRepository => _adapter?.JavascriptObjectRepository;
+        public IJavascriptObjectRepository? JavascriptObjectRepository => _adapter?.JavascriptObjectRepository;
 
-        public IDialogHandler DialogHandler { get; set; }
-        public IRequestHandler RequestHandler { get; set; }
-        public IDisplayHandler DisplayHandler { get; set; }
-        public ILoadHandler LoadHandler { get; set; }
-        public ILifeSpanHandler LifeSpanHandler { get; set; }
-        public IKeyboardHandler KeyboardHandler { get; set; }
-        public IJsDialogHandler JsDialogHandler { get; set; }
-        public IDragHandler DragHandler { get; set; }
-        public IDownloadHandler DownloadHandler { get; set; }
-        public IContextMenuHandler MenuHandler { get; set; }
-        public IFocusHandler FocusHandler { get; set; }
-        public IRenderProcessMessageHandler RenderProcessMessageHandler { get; set; }
-        public IFindHandler FindHandler { get; set; }
-        public IAudioHandler AudioHandler { get; set; }
-        public IResourceRequestHandlerFactory ResourceRequestHandlerFactory { get; set; }
+        public IDialogHandler? DialogHandler { get; set; }
+        public IRequestHandler? RequestHandler { get; set; }
+        public IDisplayHandler? DisplayHandler { get; set; }
+        public ILoadHandler? LoadHandler { get; set; }
+        public ILifeSpanHandler? LifeSpanHandler { get; set; }
+        public IKeyboardHandler? KeyboardHandler { get; set; }
+        public IJsDialogHandler? JsDialogHandler { get; set; }
+        public IDragHandler? DragHandler { get; set; }
+        public IDownloadHandler? DownloadHandler { get; set; }
+        public IContextMenuHandler? MenuHandler { get; set; }
+        public IFocusHandler? FocusHandler { get; set; }
+        public IRenderProcessMessageHandler? RenderProcessMessageHandler { get; set; }
+        public IFindHandler? FindHandler { get; set; }
+        public IAudioHandler? AudioHandler { get; set; }
+        public IResourceRequestHandlerFactory? ResourceRequestHandlerFactory { get; set; }
 
         public bool IsBrowserInitialized => _browser != null;
 
         public bool CanExecuteJavascriptInMainFrame { get; private set; }
 
-        public string TooltipText { get; private set; }
+        public string? TooltipText { get; private set; }
 
-        IBrowserAdapter IWebBrowserInternal.BrowserAdapter => _adapter;
+        IBrowserAdapter? IWebBrowserInternal.BrowserAdapter => _adapter;
         bool IWebBrowserInternal.HasParent { get; set; }
 
         bool _isAddressChanging;
 
-        public event Action<IBrowser> AfterBrowserCreated;
+        public event Action<IBrowser>? AfterBrowserCreated;
 
-        public event EventHandler<ConsoleMessageEventArgs> ConsoleMessage;
-        public event EventHandler<StatusMessageEventArgs> StatusMessage;
-        public event EventHandler<FrameLoadStartEventArgs> FrameLoadStart;
-        public event EventHandler<FrameLoadEndEventArgs> FrameLoadEnd;
-        public event EventHandler<LoadErrorEventArgs> LoadError;
-        public event EventHandler<LoadingStateChangedEventArgs> LoadingStateChanged;
-        public event EventHandler<JavascriptMessageReceivedEventArgs> JavascriptMessageReceived;
+        public event EventHandler<ConsoleMessageEventArgs>? ConsoleMessage;
+        public event EventHandler<StatusMessageEventArgs>? StatusMessage;
+        public event EventHandler<FrameLoadStartEventArgs>? FrameLoadStart;
+        public event EventHandler<FrameLoadEndEventArgs>? FrameLoadEnd;
+        public event EventHandler<LoadErrorEventArgs>? LoadError;
+        public event EventHandler<LoadingStateChangedEventArgs>? LoadingStateChanged;
+        public event EventHandler<JavascriptMessageReceivedEventArgs>? JavascriptMessageReceived;
 
-        public IBrowser GetBrowser() => _browser;
+        public IBrowser? GetBrowser() => _browser;
 
         public void Load(string url)
         {
@@ -151,11 +151,11 @@ namespace Sakuno.CefSharp.Wpf
             windowInfo.SetAsChild(_childWindow);
             windowInfo.ExStyle |= (int)NativeEnums.ExtendedWindowStyles.WS_EX_NOACTIVATE;
 
-            _adapter.CreateBrowser(windowInfo, _browserSettings, (RequestContext)RequestContext, null);
+            _adapter!.CreateBrowser(windowInfo, _browserSettings, (RequestContext?)RequestContext, null);
 
             if (_isBrowserSettingCreatedByBrowser)
             {
-                _browserSettings.Dispose();
+                _browserSettings!.Dispose();
                 _browserSettings = null;
             }
 
@@ -191,7 +191,7 @@ namespace Sakuno.CefSharp.Wpf
             {
                 var info = (NativeStructs.WINDOWPOS*)lParam;
 
-                _adapter.Resize(info->cx, info->cy);
+                _adapter!.Resize(info->cx, info->cy);
             }
 
             return base.WndProc(hwnd, msg, wParam, lParam, ref handled);
@@ -238,7 +238,7 @@ namespace Sakuno.CefSharp.Wpf
                     Load(Address);
             });
 
-            _adapter.Resize(rect.Width, rect.Height);
+            _adapter!.Resize(rect.Width, rect.Height);
 
             AfterBrowserCreated?.Invoke(_browser);
         }
