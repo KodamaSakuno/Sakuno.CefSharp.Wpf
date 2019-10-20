@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <OutputPath>$(SolutionDir)artifacts\$(Platform)\$(Configuration)\</OutputPath>
     <Version>73.1.130</Version>
     <ExcludeRestorePackageImports>true</ExcludeRestorePackageImports>
+    <Platforms>x86;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

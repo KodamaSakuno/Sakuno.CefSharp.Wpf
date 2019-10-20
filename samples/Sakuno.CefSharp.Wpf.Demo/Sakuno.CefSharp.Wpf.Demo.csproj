@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
 
-  <Import Project="$(SolutionDir)nuget\Sakuno.CefSharp.Wpf.targets" />
+  <Import Project="$(BasePath)nuget\Sakuno.CefSharp.Wpf.targets" />
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <OutputPath>$(SolutionDir)artifacts\samples\$(Platform)\$(Configuration)\</OutputPath>
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <UseWPF>true</UseWPF>
+    <Platforms>x86;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(SolutionDir)src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj" />
+    <ProjectReference Include="$(BasePath)src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj" />
   </ItemGroup>
 
 </Project>

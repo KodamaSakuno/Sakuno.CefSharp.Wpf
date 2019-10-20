@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
 
-  <Import Project="$(MSBuildThisFileDirectory)nuget\Versions.props" />
-
-  <PropertyGroup Label="BasePath">
-    <SolutionDir Condition="'$(SolutionDir)'==''">$(MSBuildThisFileDirectory)</SolutionDir>
+  <PropertyGroup>
+    <BasePath>$(MSBuildThisFileDirectory)</BasePath>
+    <MinimumVisualStudioVersion>16.0</MinimumVisualStudioVersion>
   </PropertyGroup>
 
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
-    <Platforms>x86;x64</Platforms>
     <LangVersion>8.0</LangVersion>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <BaseOutputPath>$(BasePath)artifacts\$(MSBuildProjectName)\</BaseOutputPath>
+    <BaseIntermediateOutputPath>$(BasePath)intermediate\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
   </PropertyGroup>
 
 </Project>
