@@ -95,10 +95,10 @@ namespace Sakuno.CefSharp.Wpf
         public IDownloadHandler DownloadHandler { get; set; }
         public IContextMenuHandler MenuHandler { get; set; }
         public IFocusHandler FocusHandler { get; set; }
-        public IResourceHandlerFactory ResourceHandlerFactory { get; set; }
         public IRenderProcessMessageHandler RenderProcessMessageHandler { get; set; }
         public IFindHandler FindHandler { get; set; }
         public IAudioHandler AudioHandler { get; set; }
+        public IResourceRequestHandlerFactory ResourceRequestHandlerFactory { get; set; }
 
         public bool IsBrowserInitialized => _browser != null;
 
@@ -119,6 +119,7 @@ namespace Sakuno.CefSharp.Wpf
         public event EventHandler<FrameLoadEndEventArgs> FrameLoadEnd;
         public event EventHandler<LoadErrorEventArgs> LoadError;
         public event EventHandler<LoadingStateChangedEventArgs> LoadingStateChanged;
+        public event EventHandler<JavascriptMessageReceivedEventArgs> JavascriptMessageReceived;
 
         public IBrowser GetBrowser() => _browser;
 
@@ -271,5 +272,6 @@ namespace Sakuno.CefSharp.Wpf
         void IWebBrowserInternal.OnFrameLoadStart(FrameLoadStartEventArgs args) => InvokeOnUIThread(() => FrameLoadStart?.Invoke(this, args));
         void IWebBrowserInternal.OnLoadError(LoadErrorEventArgs args) => InvokeOnUIThread(() => LoadError?.Invoke(this, args));
         void IWebBrowserInternal.OnStatusMessage(StatusMessageEventArgs args) => InvokeOnUIThread(() => StatusMessage?.Invoke(this, args));
+        void IWebBrowserInternal.SetJavascriptMessageReceived(JavascriptMessageReceivedEventArgs args) => JavascriptMessageReceived?.Invoke(this, args);
     }
 }
