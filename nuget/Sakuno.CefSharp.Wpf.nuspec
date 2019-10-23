@@ -26,7 +26,7 @@
     <file src="Versions.props" target="build" />
     <file src="Sakuno.CefSharp.Wpf.props" target="build" />
     <file src="Sakuno.CefSharp.Wpf.targets" target="build" />
-    <file src="$solutiondir$artifacts\x86\Release\net452\Sakuno.CefSharp.Wpf.dll" target="lib\net452\x86" />
-    <file src="$solutiondir$artifacts\x64\Release\net452\Sakuno.CefSharp.Wpf.dll" target="lib\net452\x64" />
+    <file src="$basepath$artifacts\Sakuno.CefSharp.Wpf\x86\Release\net452\Sakuno.CefSharp.Wpf.dll" target="lib\net452\x86" />
+    <file src="$basepath$artifacts\Sakuno.CefSharp.Wpf\x64\Release\net452\Sakuno.CefSharp.Wpf.dll" target="lib\net452\x64" />
   </files>
 </package>

@@ -5,6 +5,8 @@
     <Version>73.1.130</Version>
     <ExcludeRestorePackageImports>true</ExcludeRestorePackageImports>
     <Platforms>x86;x64</Platforms>
+    <NuspecFile>$(BasePath)nuget\Sakuno.CefSharp.Wpf.nuspec</NuspecFile>
+    <NuspecProperties>Version=$(Version);BasePath=$(BasePath);CefSharpCommonVersion=$(CefSharpCommonVersion)</NuspecProperties>
   </PropertyGroup>
 
   <ItemGroup>
