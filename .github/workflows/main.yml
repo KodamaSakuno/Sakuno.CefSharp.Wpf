@@ -3,8 +3,13 @@ on: [push]
 jobs:
   build-and-pack:
     runs-on: windows-latest
+    env:
+      DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
     steps:
     - uses: actions/checkout@v1
+    - name: Resore NuGet packages
+      run: dotnet restore
     - name: Build Sakuno.CefSharp.Wpf
       run: |
         dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj --no-restore -c Release -p:Platform=x86 -v m
