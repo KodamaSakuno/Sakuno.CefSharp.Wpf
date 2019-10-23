@@ -6,11 +6,11 @@ image: Visual Studio 2019
 init:
 - cmd: git config --global core.autocrlf true
 before_build:
-- cmd: nuget restore
+- cmd: dotnet restore
 build_script:
 - ps: |
-    dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj -c Release -p:Platform=x86 -v m
-    dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj -c Release -p:Platform=x64 -v m
+    dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj --no-restore -c Release -p:Platform=x86 -v m
+    dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj --no-restore -c Release -p:Platform=x64 -v m
 after_build:
 - ps: |
     Get-ChildItem -Recurse -Path artifacts -Filter Sakuno.CefSharp.Wpf.dll | Select-Object FullName, Length
