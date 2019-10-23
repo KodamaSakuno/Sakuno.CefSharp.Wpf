@@ -1,0 +1,12 @@
+name: Sakuno.CefSharp.Wpf CI
+on: [push]
+jobs:
+  build-and-pack:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build Sakuno.CefSharp.Wpf
+      run: dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj --no-restore -c Release -p:Platform=x86 -v m
+      run: dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj --no-restore -c Release -p:Platform=x64 -v m
+    - name: Pack Sakuno.CefSharp.Wpf
+      run: dotnet pack src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj -c Release --no-build -o $GITHUB_WORKSPACE
