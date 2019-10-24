@@ -16,3 +16,5 @@ jobs:
         dotnet build src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj --no-restore -c Release -p:Platform=x64 -v m
     - name: Pack Sakuno.CefSharp.Wpf
       run: dotnet pack src\Sakuno.CefSharp.Wpf\Sakuno.CefSharp.Wpf.csproj -c Release --no-build -o ${{ github.workspace }}
+    - name: Publish Sakuno.CefSharp.Wpf
+      run: dotnet nuget push ${{ github.workspace }}\*.nupkg -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}

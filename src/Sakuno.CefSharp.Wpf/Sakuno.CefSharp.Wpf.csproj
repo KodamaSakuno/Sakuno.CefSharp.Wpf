@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <Version>73.1.130</Version>
+    <Version>75.1.142-pre</Version>
     <ExcludeRestorePackageImports>true</ExcludeRestorePackageImports>
     <Platforms>x86;x64</Platforms>
     <NuspecFile>$(BasePath)nuget\Sakuno.CefSharp.Wpf.nuspec</NuspecFile>
